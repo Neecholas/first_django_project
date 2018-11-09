@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 # the function takes a request and
 def home(request):
   context = {
-    'Poo': 'Hey there'
+    'posts': Post.objects.all()
     }
   return render(request, 'blog/home.html', context)
 
